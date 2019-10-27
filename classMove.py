@@ -26,10 +26,10 @@ def create_maze():
 		
 
 #create class Move
+
 class Move:
 	def __init__(self):
-		self.case_x = 0
-		self.case_y = 0
-		self.x = 0
-		self.y = 0
+		self.move = " "
+		
+			
 	

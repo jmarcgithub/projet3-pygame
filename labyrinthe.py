@@ -10,14 +10,14 @@ labyUn = classMove.Laby()
 labyUn = labyUn.lab
 
 labyList = list(labyUn)
-
+"""
 i = 0
 x_wall = []
 y_wall = []
 nbr_wall = 0
 liste_wall = []
 span = 43
-
+"""
 # CREATE WALL
 while i < 225:
 	if labyList[i] == "o":
@@ -80,14 +80,15 @@ fenetre.blit(fond, (0,0))
 
 perso = pygame.image.load("macGyver.png").convert_alpha()
 position_perso = perso.get_rect()
-
 position_perso.center = 59, 64
 fenetre.blit(perso, (position_perso))
+
 gardien = pygame.image.load("Gardien.png").convert_alpha()
 
 wall = pygame.image.load("mur.png").convert_alpha()
 position_wall = wall.get_rect()
 position_wall.center = 43, 43
+
 
 
 pygame.display.flip()
@@ -102,13 +103,15 @@ while keep:
 			continuer = 0
 		if event.type == KEYDOWN:
 			if event.key == K_DOWN:
-				position_perso = position_perso.move(0,43)
+				position_perso = position_perso.move(0,span)
 			if event.key == K_UP:
-				position_perso = position_perso.move(0,-43)		
+				position_perso = position_perso.move(0,-span)		
 			if event.key == K_RIGHT:
-				position_perso = position_perso.move(43,0)
+				position_perso = position_perso.move(span,0)
 			if event.key == K_LEFT:
-				position_perso = position_perso.move(-43,0)
+				position_perso = position_perso.move(-span,0)
+			if event.key == K_s:
+				print("s")
 		if event.type == MOUSEBUTTONDOWN and event.button == 3 and event.pos[1] < 100:
 			print("zone dangereuse")
 
@@ -129,6 +132,7 @@ while keep:
 	
 	
 	fenetre.blit(perso, position_perso)
+
 	pygame.display.flip()
 	
 	
